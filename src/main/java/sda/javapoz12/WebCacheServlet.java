@@ -54,7 +54,7 @@ public class WebCacheServlet extends HttpServlet {
 
     private String load(String key) throws IOException {
         final HttpClient client = HttpClients.createDefault();
-        final HttpGet get = new HttpGet("../" + key);
+        final HttpGet get = new HttpGet("http://" + key);
         final HttpResponse execute = client.execute(get);
         final InputStream content = execute.getEntity().getContent();
         final BufferedInputStream inputStream = new BufferedInputStream(content);
