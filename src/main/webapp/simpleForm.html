@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple form</title>
+</head>
+<body>
+<style>
+    input {
+        margin-bottom: 1em;
+    }
+</style>
+
+<form action="actionServlet" method="post">
+    <div>
+        <label>Imię</label><br/>
+        <input name="name" type="text">
+    </div>
+    <div>
+        <label>Data urodzenia</label><br/>
+        <input name="birthdate" type="date">
+    </div>
+    <div>
+        <input type="submit" value="Confirm">
+    </div>
+</form>
+</body>
+</html>

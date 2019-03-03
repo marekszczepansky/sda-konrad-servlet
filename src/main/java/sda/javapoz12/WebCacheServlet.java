@@ -13,9 +13,9 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
@@ -57,8 +57,6 @@ public class WebCacheServlet extends HttpServlet {
         final HttpGet get = new HttpGet("http://" + key);
         final HttpResponse execute = client.execute(get);
         final InputStream content = execute.getEntity().getContent();
-        final BufferedInputStream inputStream = new BufferedInputStream(content);
-        byte[] bytes = inputStream.readAllBytes();
-        return new String(bytes, "UTF8");
+        return new Scanner(content, "UTF8").useDelimiter("\\A").next();
     }
 }
