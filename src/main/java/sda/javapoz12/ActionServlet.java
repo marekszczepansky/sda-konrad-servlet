@@ -1,5 +1,7 @@
 package sda.javapoz12;
 
+import org.apache.http.HttpHeaders;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,15 +15,23 @@ import java.util.Arrays;
 public class ActionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        response.setContentType("text/html");
+        response.setContentType("text/html;charset=UTF-8");
+
+        String clientIp = request.getRemoteAddr();
+        String testName = request.getParameter("name");
+        String browser = request.getHeader("User-Agent");
+
         PrintWriter out = response.getWriter();
         String title = "Using POST Method to Read Form Data";
-        String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
+        String docType = "<!doctype html>\n";
 
         out.println(docType +
-                "<html>\n" +
-                "<head><title>" + title + "</title></head>\n" +
+                "<html lang=\"pl\">\n" +
+                "<head><meta charset=\"UTF-8\"><title>" + title + "</title></head>\n" +
                 "<body>\n" +
+                "<p> Client IP " + clientIp + "</p>" +
+                "<p> Client name " + testName + "</p>" +
+                "<p> Client agent " + browser + "</p>" +
                 "<h1 align = \"center\">" + title + "</h1>\n" +
                 "<ul>\n");
 
