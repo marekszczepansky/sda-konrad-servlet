@@ -22,7 +22,6 @@ public class DoListServlet extends HttpServlet {
 
         Collection<User> users = UsersDAO.getInstance().getAll();
 
-        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter outputStream = response.getWriter();
 
