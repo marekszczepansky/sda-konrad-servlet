@@ -41,6 +41,6 @@ public class DoTaskServlet extends HttpServlet {
         System.out.println("User read " + user);
 
         response.setContentType("text/html;charset=UTF-8");
-        response.getOutputStream().println("User read " + user);
+        response.getWriter().println("User read " + user);
     }
 }
