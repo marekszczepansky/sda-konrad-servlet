@@ -13,8 +13,9 @@ import java.util.Arrays;
 public class ActionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
 
         String clientIp = request.getRemoteAddr();
         String testName = request.getParameter("name");

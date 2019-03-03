@@ -13,6 +13,7 @@ import java.io.IOException;
 @WebServlet("/task/doTask")
 public class DoTaskServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
 
         User user = new User(
                 request.getParameter("name"),
@@ -29,12 +30,17 @@ public class DoTaskServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
         String surname = request.getParameter("surname");
 
         User user = UsersDAO.getInstance().getByName(surname);
 
         System.out.println("DoTaskServlet GET from " + request.getRemoteAddr());
         System.out.println("User read " + user);
+
+        response.setContentType("text/html;charset=UTF-8");
         response.getOutputStream().println("User read " + user);
     }
 }
