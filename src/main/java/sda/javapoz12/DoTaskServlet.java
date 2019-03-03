@@ -25,7 +25,7 @@ public class DoTaskServlet extends HttpServlet {
 
         UsersDAO.getInstance().save(user);
 
-        response.getOutputStream().println("User created " + user);
+        response.sendRedirect("doList");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
