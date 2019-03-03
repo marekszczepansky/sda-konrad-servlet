@@ -1,5 +1,6 @@
 package sda.javapoz12;
 
+import sda.javapoz12.dal.UsersDAO;
 import sda.javapoz12.domain.User;
 
 import javax.servlet.ServletException;
@@ -22,10 +23,18 @@ public class DoTaskServlet extends HttpServlet {
         System.out.println("DoTaskServlet post from " + request.getRemoteAddr());
         System.out.println("User created " + user);
 
+        UsersDAO.getInstance().save(user);
+
         response.getOutputStream().println("User created " + user);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String surname = request.getParameter("surname");
 
+        User user = UsersDAO.getInstance().getByName(surname);
+
+        System.out.println("DoTaskServlet GET from " + request.getRemoteAddr());
+        System.out.println("User read " + user);
+        response.getOutputStream().println("User read " + user);
     }
 }

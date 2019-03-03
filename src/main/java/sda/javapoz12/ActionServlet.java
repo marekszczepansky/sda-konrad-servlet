@@ -1,7 +1,5 @@
 package sda.javapoz12;
 
-import org.apache.http.HttpHeaders;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +14,7 @@ public class ActionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
         String clientIp = request.getRemoteAddr();
         String testName = request.getParameter("name");
