@@ -1,4 +1,4 @@
-package sda.javapoz12;
+package sda.javapoz12.task;
 
 import sda.javapoz12.dal.UsersDAO;
 import sda.javapoz12.domain.User;
@@ -20,14 +20,16 @@ public class DoListServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        PrintWriter outputStream = response.getWriter();
+        response.setContentType("text/html;charset=UTF-8");
+
         Collection<User> users = UsersDAO.getInstance().getAll();
 
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter outputStream = response.getWriter();
 
         for (User user : users) {
             outputStream.println(user.toString());
         }
 
+//        request.getRequestDispatcher("index.html").include(request, response);
     }
 }

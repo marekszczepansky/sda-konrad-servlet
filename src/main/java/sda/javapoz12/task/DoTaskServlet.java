@@ -1,4 +1,4 @@
-package sda.javapoz12;
+package sda.javapoz12.task;
 
 import sda.javapoz12.dal.UsersDAO;
 import sda.javapoz12.domain.User;

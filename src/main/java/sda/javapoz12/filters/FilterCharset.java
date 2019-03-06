@@ -1,4 +1,4 @@
-package sda.javapoz12;
+package sda.javapoz12.filters;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -15,9 +15,11 @@ public class FilterCharset implements Filter {
         resp.setCharacterEncoding("UTF-8");
         String clientIp = req.getRemoteAddr();
         String requestPath = "unknown";
+        String servletPath = "unknown";
 
         if (req instanceof HttpServletRequest) {
             HttpServletRequest httpServletRequest = (HttpServletRequest) req;
+            servletPath = httpServletRequest.getServletPath();
             requestPath = httpServletRequest.getMethod() + " " + httpServletRequest.getRequestURL().toString();
             if (httpServletRequest.getQueryString() != null) {
                 requestPath += "?" + httpServletRequest.getQueryString();
@@ -25,6 +27,7 @@ public class FilterCharset implements Filter {
         }
 
         System.out.println(clientIp + " requests start for " + requestPath);
+        System.out.println("servlet path matched " + servletPath);
 
         chain.doFilter(req, resp);
 
