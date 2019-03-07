@@ -5,7 +5,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@WebFilter(filterName = "FilterCharset", urlPatterns = {"/task/*", "/actionServlet"})
+@WebFilter(filterName = "FilterCharset", urlPatterns = {"/task/*", "/actionServlet"}, dispatcherTypes = DispatcherType.REQUEST)
 public class FilterCharset implements Filter {
     public void destroy() {
     }
