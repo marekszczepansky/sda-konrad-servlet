@@ -18,7 +18,8 @@ public class DoTaskServlet extends HttpServlet {
         User user = new User(
                 request.getParameter("name"),
                 request.getParameter("surname"),
-                Integer.parseInt(request.getParameter("age"))
+                Integer.parseInt(request.getParameter("age")),
+                request.getParameter("email")
         );
 
         System.out.println("DoTaskServlet post from " + request.getRemoteAddr());
