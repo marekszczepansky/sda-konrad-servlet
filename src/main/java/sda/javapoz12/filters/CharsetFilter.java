@@ -20,14 +20,12 @@ public class CharsetFilter implements Filter {
             HttpServletRequest request;
             request = (HttpServletRequest) req;
             request.setCharacterEncoding("UTF-8");
-            System.out.println("request encoding set to UTF-8");
         }
 
         if (resp instanceof HttpServletResponse) {
             HttpServletResponse response;
             response = (HttpServletResponse) resp;
             response.setCharacterEncoding("UTF-8");
-            System.out.println("response encoding set to UTF-8");
         }
 
         chain.doFilter(req, resp);

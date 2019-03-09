@@ -23,7 +23,6 @@ public class DoTaskServlet extends HttpServlet {
                 request.getParameter("email")
         );
 
-        System.out.println("DoTaskServlet post from " + request.getRemoteAddr());
         System.out.println("User created " + user);
 
         UsersDAO.getInstance().save(user);
