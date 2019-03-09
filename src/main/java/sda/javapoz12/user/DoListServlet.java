@@ -1,4 +1,4 @@
-package sda.javapoz12;
+package sda.javapoz12.user;
 
 import sda.javapoz12.dal.UsersDAO;
 import sda.javapoz12.domain.User;
@@ -22,7 +22,7 @@ public class DoListServlet extends HttpServlet {
 
         Collection<User> users = UsersDAO.getInstance().getAll();
 
-        response.setCharacterEncoding("UTF-8");
+//        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter outputStream = response.getWriter();
         outputStream.println("<a href=\"index.html\">Dodaj nowy</a></br>");

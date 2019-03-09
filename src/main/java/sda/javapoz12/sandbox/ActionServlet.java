@@ -1,4 +1,4 @@
-package sda.javapoz12;
+package sda.javapoz12.sandbox;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
-@WebServlet("/actionServlet")
+@WebServlet(value = "/actionServlet", name = "ActionTestServlet")
 public class ActionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

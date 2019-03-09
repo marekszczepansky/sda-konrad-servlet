@@ -1,4 +1,4 @@
-package sda.javapoz12;
+package sda.javapoz12.user;
 
 import sda.javapoz12.dal.UsersDAO;
 
