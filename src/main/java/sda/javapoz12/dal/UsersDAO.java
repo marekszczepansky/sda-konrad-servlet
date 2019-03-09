@@ -16,24 +16,25 @@ public class UsersDAO {
 
     private UsersDAO() { }
 
-    private Map<String, User> storage = new HashMap<>();
+    private Map<Integer, User> storage = new HashMap<>();
 
     public User save(User newUser){
+        newUser.setId(++LAST_INDEX);
         return storage.put(
-                newUser.getSurname(),  // klucz wyszukiwania
-                newUser                // wartość przechowywana
+                newUser.getId(),  // klucz wyszukiwania
+                newUser           // wartość przechowywana
         );
     }
 
-    public User getByName(String surname) {
-        return storage.get(surname);
+    public User getById(Integer id) {
+        return storage.get(id);
     }
 
     public Collection<User> getAll(){
         return storage.values();
     }
 
-    public void delete(String surname) {
-        storage.remove(surname);
+    public void delete(Integer id) {
+        storage.remove(id);
     }
 }

@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+// TODO: dodać filtr wyświetlający na konsoli rozpoczęcie i zakończenie requestu z podaniem url i adresu IP
+//       httpServletRequest.getRequestURL().toString(),httpServletRequest.getQueryString()
+
+
 @WebServlet("/task/doTask")
 public class DoTaskServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,9 +38,9 @@ public class DoTaskServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        String surname = request.getParameter("surname");
+        Integer id = Integer.parseInt(request.getParameter("id"));
 
-        User user = UsersDAO.getInstance().getByName(surname);
+        User user = UsersDAO.getInstance().getById(id);
 
         System.out.println("DoTaskServlet GET from " + request.getRemoteAddr());
         System.out.println("User read " + user);

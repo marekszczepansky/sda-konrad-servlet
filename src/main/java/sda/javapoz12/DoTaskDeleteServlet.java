@@ -13,9 +13,9 @@ import java.io.IOException;
 public class DoTaskDeleteServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String surname = request.getParameter("surname");
+        Integer id = Integer.parseInt(request.getParameter("id"));
 
-        UsersDAO.getInstance().delete(surname);
+        UsersDAO.getInstance().delete(id);
 
     }
 }
