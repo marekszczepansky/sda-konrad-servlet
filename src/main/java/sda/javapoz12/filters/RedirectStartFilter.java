@@ -28,9 +28,7 @@ public class RedirectStartFilter implements Filter {
 
             Cookie[] cookies = request.getCookies();
             if (cookies != null) {
-                visited = Arrays.stream(cookies)
-                        .filter(cookie -> "visited".equals(cookie.getName()) && "yes".equals(cookie.getValue()))
-                        .findFirst().isPresent();
+                visited = Arrays.stream(cookies).anyMatch(cookie -> "visited".equals(cookie.getName()) && "yes".equals(cookie.getValue()));
             }
         }
 
