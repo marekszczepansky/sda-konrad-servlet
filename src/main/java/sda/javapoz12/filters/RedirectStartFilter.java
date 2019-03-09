@@ -39,7 +39,7 @@ public class RedirectStartFilter implements Filter {
             response = (HttpServletResponse) resp;
 
             if (!visited) {
-                response.sendRedirect("/servletWar/index.jsp");
+                response.sendRedirect("/servletWar/");
                 System.out.println("forced redirect to index.jsp");
             }
         }

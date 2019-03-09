@@ -31,8 +31,6 @@ public class DoTaskServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        request.setCharacterEncoding("UTF-8");
-//        response.setCharacterEncoding("UTF-8");
 
         Integer id = Integer.parseInt(request.getParameter("id"));
 
@@ -42,6 +40,9 @@ public class DoTaskServlet extends HttpServlet {
         System.out.println("User read " + user);
 
         response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().println("User read " + user);
+
+        request.setAttribute("User", user);
+
+        request.getRequestDispatcher("show.jsp").forward(request, response);
     }
 }
