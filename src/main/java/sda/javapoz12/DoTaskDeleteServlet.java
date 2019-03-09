@@ -17,5 +17,6 @@ public class DoTaskDeleteServlet extends HttpServlet {
 
         UsersDAO.getInstance().delete(id);
 
+        response.sendRedirect("doList");
     }
 }
