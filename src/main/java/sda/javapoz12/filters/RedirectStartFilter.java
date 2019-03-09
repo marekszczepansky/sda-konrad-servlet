@@ -27,9 +27,11 @@ public class RedirectStartFilter implements Filter {
             request = (HttpServletRequest) req;
 
             Cookie[] cookies = request.getCookies();
-            visited = Arrays.stream(cookies)
-                    .filter(cookie -> "visited".equals(cookie.getName()) && "yes".equals(cookie.getValue()))
-                    .findFirst().isPresent();
+            if (cookies != null) {
+                visited = Arrays.stream(cookies)
+                        .filter(cookie -> "visited".equals(cookie.getName()) && "yes".equals(cookie.getValue()))
+                        .findFirst().isPresent();
+            }
         }
 
         if (resp instanceof HttpServletResponse) {
@@ -37,11 +39,13 @@ public class RedirectStartFilter implements Filter {
             response = (HttpServletResponse) resp;
 
             if (!visited) {
-                response.sendRedirect("/index.jsp");
+                response.sendRedirect("/servletWar/index.jsp");
+                System.out.println("forced redirect to index.jsp");
             }
         }
 
         if (visited) {
+            System.out.println("cookie found index.jsp");
             chain.doFilter(req, resp);
         }
     }
