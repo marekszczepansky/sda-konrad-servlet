@@ -30,7 +30,8 @@ public class DoListServlet extends HttpServlet {
         outputStream.println("<a href=\"index.html\">Dodaj nowy</a></br>");
 
         for (User user : users) {
-            outputStream.println("<a href=\"doTask?surname=" + user.getSurname() + "\">" + user.toString() + "</a><br>");
+            outputStream.println("<a href=\"doTask?surname=" + user.getSurname() + "\">" + user.toString() + "</a>");
+            outputStream.println(" <a href=\"doDelete?surname=" + user.getSurname() + "\">Usuń</a></br>");
         }
 
     }

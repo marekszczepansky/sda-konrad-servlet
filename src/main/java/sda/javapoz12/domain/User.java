@@ -1,6 +1,7 @@
 package sda.javapoz12.domain;
 
 public class User {
+    private Integer id;
     private String name;
     private String surname;
     private int age;

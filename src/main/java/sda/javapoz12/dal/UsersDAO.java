@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class UsersDAO {
     private static UsersDAO ourInstance = new UsersDAO();
+    private static Integer LAST_INDEX = 0;
 
     public static UsersDAO getInstance() {
         return ourInstance;
@@ -30,5 +31,9 @@ public class UsersDAO {
 
     public Collection<User> getAll(){
         return storage.values();
+    }
+
+    public void delete(String surname) {
+        storage.remove(surname);
     }
 }
