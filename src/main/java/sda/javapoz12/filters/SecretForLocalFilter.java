@@ -10,6 +10,10 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/*
+filter order
+https://stackoverflow.com/questions/6560969/how-to-define-servlet-filter-order-of-execution-using-annotations-in-war
+ */
 @WebFilter(filterName = "Secret for local", urlPatterns = "/secret/*")
 public class SecretForLocalFilter implements Filter {
     public void destroy() {
