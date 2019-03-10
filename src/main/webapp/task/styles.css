@@ -33,3 +33,27 @@ label {
 .uppercase {
     text-transform: uppercase;
 }
+
+div.menu {
+    border: blue 1px solid;
+    padding: 1em;
+    font-family: Arial, sans-serif;
+    font-size: larger;
+}
+
+.menu > a {
+    margin-right: 1em;
+}
+
+.user-details {
+    font-family: Arial, sans-serif;
+    padding: 1em;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    font-family: Arial, sans-serif;
+    font-size: small;
+    padding: .5em;
+}
