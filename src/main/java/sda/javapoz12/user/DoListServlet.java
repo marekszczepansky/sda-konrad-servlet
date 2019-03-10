@@ -21,16 +21,7 @@ public class DoListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Collection<User> users = UsersDAO.getInstance().getAll();
-
-//        response.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter outputStream = response.getWriter();
-        outputStream.println("<a href=\"index.html\">Dodaj nowy</a></br>");
-
-        for (User user : users) {
-            outputStream.println("<a href=\"doTask?id=" + user.getId() + "\">" + user.toString() + "</a>");
-            outputStream.println(" <a href=\"doDelete?id=" + user.getId() + "\">Usuń</a></br>");
-        }
-
+        request.setAttribute("users", users);
+        request.getRequestDispatcher("list.jsp").forward(request, response);
     }
 }
