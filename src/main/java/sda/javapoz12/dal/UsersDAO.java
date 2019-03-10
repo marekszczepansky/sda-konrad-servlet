@@ -7,23 +7,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UsersDAO {
-    private static UsersDAO ourInstance = new UsersDAO();
     private static Integer LAST_INDEX = 0;
+    private static UsersDAO ourInstance = new UsersDAO();
+    private Map<Integer, User> storage = new HashMap<>();
 
     public static UsersDAO getInstance() {
         return ourInstance;
     }
 
-    private UsersDAO() { }
-
-    private Map<Integer, User> storage = new HashMap<>();
+    private UsersDAO() {
+        save(new User("Artur", "Boruc", 33, "artur@boruc"));
+        save(new User("Szymon", "Paluch", 24, "szymon@paluch"));
+    }
 
     public User save(User newUser){
         newUser.setId(++LAST_INDEX);
-        return storage.put(
-                newUser.getId(),  // klucz wyszukiwania
-                newUser           // wartość przechowywana
-        );
+        return update(newUser);
     }
 
     public User getById(Integer id) {
@@ -36,5 +35,12 @@ public class UsersDAO {
 
     public void delete(Integer id) {
         storage.remove(id);
+    }
+
+    public User update(User user) {
+        return storage.put(
+                user.getId(),  // klucz wyszukiwania
+                user           // wartość przechowywana
+        );
     }
 }
