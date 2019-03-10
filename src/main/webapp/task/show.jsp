@@ -22,6 +22,7 @@
         Surname: ${User.surname}<br>
         Useremail: ${User.email}<br>
         Age: ${User.age}<br>
+        <a href="doEdit?id=${User.id}">Edit</a>
 </div>
 <%
     } else {
