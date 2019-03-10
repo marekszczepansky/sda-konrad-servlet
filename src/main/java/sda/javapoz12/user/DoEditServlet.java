@@ -1,6 +1,6 @@
 package sda.javapoz12.user;
 
-import sda.javapoz12.dal.UsersDAO;
+import sda.javapoz12.dal.UsersDAOJpa;
 import sda.javapoz12.domain.User;
 
 import javax.servlet.ServletException;
@@ -22,14 +22,14 @@ public class DoEditServlet extends HttpServlet {
                 request.getParameter("email")
         );
 
-        UsersDAO.getInstance().update(user);
+        UsersDAOJpa.getInstance().update(user);
         response.sendRedirect("doList");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer id = Integer.parseInt(request.getParameter("id"));
 
-        User user = UsersDAO.getInstance().getById(id);
+        User user = UsersDAOJpa.getInstance().getById(id);
 
         if (user == null) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND, "User not found");

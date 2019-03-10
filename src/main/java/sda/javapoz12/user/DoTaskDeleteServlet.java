@@ -1,6 +1,6 @@
 package sda.javapoz12.user;
 
-import sda.javapoz12.dal.UsersDAO;
+import sda.javapoz12.dal.UsersDAOJpa;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +15,7 @@ public class DoTaskDeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer id = Integer.parseInt(request.getParameter("id"));
 
-        UsersDAO.getInstance().delete(id);
+        UsersDAOJpa.getInstance().delete(id);
 
         response.sendRedirect("doList");
     }
