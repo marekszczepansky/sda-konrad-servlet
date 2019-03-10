@@ -43,7 +43,6 @@ public class RedirectStartFilter implements Filter {
         }
 
         if (visited) {
-            System.out.println("cookie found index.jsp");
             chain.doFilter(req, resp);
         }
     }
