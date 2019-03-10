@@ -27,7 +27,7 @@
             <input type="email" name="email" value="${user.email}">
         </label> <br>
         <label>Age: <br>
-            <input type="number" name="name" value="${user.age}">
+            <input type="number" name="age" value="${user.age}">
         </label> <br>
         <button type="submit">Save</button>
         <button type="reset">Reset</button>
