@@ -1,6 +1,6 @@
 package sda.javapoz12.user;
 
-import sda.javapoz12.dal.UsersDAOJpa;
+import sda.javapoz12.dal.UsersDAO;
 import sda.javapoz12.domain.User;
 
 import javax.servlet.ServletException;
@@ -18,8 +18,9 @@ public class DoListServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UsersDAO usersDAO = (UsersDAO) getServletContext().getAttribute("UsersDAO");
 
-        Collection<User> users = UsersDAOJpa.getInstance().getAll();
+        Collection<User> users = usersDAO.getAll();
         request.setAttribute("users", users);
         request.getRequestDispatcher("list.jsp").forward(request, response);
     }

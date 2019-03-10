@@ -1,6 +1,6 @@
 package sda.javapoz12.user;
 
-import sda.javapoz12.dal.UsersDAOJpa;
+import sda.javapoz12.dal.UsersDAO;
 import sda.javapoz12.domain.User;
 
 import javax.servlet.ServletException;
@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet("/task/doTask")
 public class DoTaskServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        request.setCharacterEncoding("UTF-8");
+        UsersDAO usersDAO = (UsersDAO) getServletContext().getAttribute("UsersDAO");
 
         User user = new User(
                 request.getParameter("name"),
@@ -25,16 +25,17 @@ public class DoTaskServlet extends HttpServlet {
 
         System.out.println("User created " + user);
 
-        UsersDAOJpa.getInstance().save(user);
+        usersDAO.save(user);
 
         response.sendRedirect("doList");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UsersDAO usersDAO = (UsersDAO) getServletContext().getAttribute("UsersDAO");
 
         Integer id = Integer.parseInt(request.getParameter("id"));
 
-        User user = UsersDAOJpa.getInstance().getById(id);
+        User user = usersDAO.getById(id);
 
         System.out.println("DoTaskServlet GET from " + request.getRemoteAddr());
         System.out.println("User read " + user);
