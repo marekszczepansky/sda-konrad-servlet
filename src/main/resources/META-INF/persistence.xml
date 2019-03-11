@@ -39,7 +39,7 @@
             <property name="hibernate.default_schema" value="sda"/>
 
             <!-- TODO: dostosować do potrzeb, drop-and-create będzie przy każdym starcie czyścić bazę danych -->
-            <!--<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>-->
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
         </properties>
