@@ -1,23 +1,10 @@
 package sda.javapoz12.filters;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-
-// TODO: dodać kod wyświetlający na konsoli rozpoczęcie i zakończenie requestu z podaniem czasu, metody, url i adresu IP
-//       httpServletRequest.getRequestURL().toString(),httpServletRequest.getQueryString()
-//       metody: GET, POST
-
-// TODO: dla ambitnych - zbudować filter który pozwoli wykonać tylko żądania z IP 127.0.0.1 a innym zwróci status 401
-
 
 @WebFilter(filterName = "Logger", urlPatterns = "/task/*")
 public class LoggerFilter implements Filter {

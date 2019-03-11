@@ -8,6 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <div class="menu">
     <a href="../">Aplikacja</a>
-    <a href="./index.html">Nowy Użytkownik</a>
+    <a href="./new.jsp">Nowy Użytkownik</a>
     <a href="doList">Lista użytkowników</a>
 </div>

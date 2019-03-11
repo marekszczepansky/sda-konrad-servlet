@@ -12,9 +12,14 @@ import java.io.IOException;
 
 @WebServlet("/task/doEdit")
 public class DoEditServlet extends HttpServlet {
+    private UsersDAO usersDAO;
+
+    public void init() {
+        usersDAO = (UsersDAO) getServletContext().getAttribute("UsersDAO");
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UsersDAO usersDAO = (UsersDAO) getServletContext().getAttribute("UsersDAO");
+        usersDAO = (UsersDAO) getServletContext().getAttribute("UsersDAO");
         User user = new User(
                 Integer.parseInt(request.getParameter("id")),
                 request.getParameter("name"),
@@ -28,7 +33,6 @@ public class DoEditServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UsersDAO usersDAO = (UsersDAO) getServletContext().getAttribute("UsersDAO");
         Integer id = Integer.parseInt(request.getParameter("id"));
 
         User user = usersDAO.getById(id);

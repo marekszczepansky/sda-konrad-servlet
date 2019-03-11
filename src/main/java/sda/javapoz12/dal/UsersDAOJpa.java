@@ -17,6 +17,7 @@ public class UsersDAOJpa implements UsersDAO {
     }
 
     public UsersDAOJpa() {
+        // TODO: wybór bazy danych PU - H2, PUmysql - MySql
         emf = Persistence.createEntityManagerFactory("PUmysql");
         save(new User("Artur", "Boruc", 33, "artur@boruc"));
         save(new User("Szymon", "Paluch", 24, "szymon@paluch"));

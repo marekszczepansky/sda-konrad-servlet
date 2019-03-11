@@ -14,17 +14,18 @@
 </head>
 <body>
 <%@include file="menu.jspf" %>
-<h2>Uses list</h2>
+
+<h2>User list</h2>
 <%
     if (request.getAttribute("users") != null) {
         Collection<User> users = (Collection<User>) request.getAttribute("users");
         for (User user : users) {
 %>
 <div class="user-details">
-    Name: <%=user.getName()%>
-    Surname: <%=user.getSurname()%>
-    Useremail: <%=user.getEmail()%>
-    Age: <%=user.getAge()%>
+    name: <%=user.getName()%>
+    surname: <%=user.getSurname()%>
+    email: <%=user.getEmail()%>
+    age: <%=user.getAge()%>
     <a href="doTask?id=<%=user.getId()%>">Show</a>
     <a href="doEdit?id=<%=user.getId()%>">Edit</a>
 </div>
@@ -36,6 +37,7 @@
 <%
     }
 %>
+
 <%@include file="footer.jspf" %>
 </body>
 </html>

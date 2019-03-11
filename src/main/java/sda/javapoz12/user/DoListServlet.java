@@ -13,13 +13,14 @@ import java.util.Collection;
 
 @WebServlet("/task/doList")
 public class DoListServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    private UsersDAO usersDAO;
+
+    public void init() {
+        usersDAO = (UsersDAO) getServletContext().getAttribute("UsersDAO");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UsersDAO usersDAO = (UsersDAO) getServletContext().getAttribute("UsersDAO");
-
         Collection<User> users = usersDAO.getAll();
         request.setAttribute("users", users);
         request.getRequestDispatcher("list.jsp").forward(request, response);

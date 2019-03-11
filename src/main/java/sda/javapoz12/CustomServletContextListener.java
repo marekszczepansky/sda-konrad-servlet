@@ -14,6 +14,7 @@ public class CustomServletContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext context = sce.getServletContext();
+        // TODO: to wybierz jakia implementacja UsersDAO ma być używana UsersDAOJpa czy UsersDAOMap
         UsersDAO instance = UsersDAOJpa.getInstance();
         System.out.println("UsersDAO context instance created");
         context.setAttribute("UsersDAO", instance);
